@@ -12,6 +12,7 @@ import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import { gnosis, mainnet, goerli, sepolia } from 'wagmi/chains';
 import { Box } from '@chakra-ui/react';
 import Head from 'next/head';
+import { Analytics } from '@vercel/analytics/react';
 
 import { Providers } from './providers';
 import { WALLETCONNECT_PROJECT_ID } from './config';
@@ -54,6 +55,7 @@ export default function RootLayout({ children }) {
                 />
               </Head>
               {children}
+              <Analytics />
             </Box>
           </Providers>
         </WagmiConfig>
