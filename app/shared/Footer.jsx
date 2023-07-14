@@ -11,9 +11,19 @@ export const Footer = () => {
   return (
     <Flex direction='column'>
       <Flex direction='row' justifyContent='space-between' alignItems='center'>
-        <ChakraLink href='https://raidguild.org' isExternal>
+        <Text mt='10px' textAlign='center' fontSize='12px' opacity='0.7'>
+          built by{' '}
+          <ChakraLink
+            href='https://twitter.com/saimano1996'
+            isExternal
+            fontWeight='bold'
+          >
+            Saimano
+          </ChakraLink>
+        </Text>
+        {/* <ChakraLink href='https://raidguild.org' isExternal>
           <ChakraImage src='/raidguild.webp' h={{ lg: '30px', sm: '20px' }} />
-        </ChakraLink>
+        </ChakraLink> */}
         <Text
           textTransform='uppercase'
           w='60%'
@@ -25,16 +35,6 @@ export const Footer = () => {
           On Goerli, Gnosis & Ethereum Mainnet
         </Text>
       </Flex>
-      <Text mt='10px' textAlign='center' fontSize='12px' opacity='0.7'>
-        tribute by{' '}
-        <ChakraLink
-          href='https://twitter.com/saimano1996'
-          isExternal
-          fontWeight='bold'
-        >
-          Saimano
-        </ChakraLink>
-      </Text>
     </Flex>
   );
 };

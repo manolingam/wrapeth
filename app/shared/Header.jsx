@@ -30,7 +30,7 @@ export const Header = ({
     >
       <HStack fontSize={{ lg: '24px', sm: '18px' }}>
         <GiWrappedSweet />
-        <Text>Wrapeth</Text>
+        <Text>Wrap-N-Wrap</Text>
       </HStack>
       <HStack>
         {isTxLoading && (
