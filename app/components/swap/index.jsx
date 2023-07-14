@@ -141,6 +141,7 @@ export const SwapBox = ({
         <Button
           mt='1rem'
           isLoading={depositLoading || withdrawLoading || isTxLoading}
+          loadingText={'Transaction pending..'}
           isDisabled={
             Number(tokenInput) > 0
               ? type === 'Wrap'

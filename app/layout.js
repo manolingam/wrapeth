@@ -10,13 +10,17 @@ import {
 import { Web3Modal } from '@web3modal/react';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import { gnosis, mainnet, goerli, sepolia } from 'wagmi/chains';
-
 import { Box } from '@chakra-ui/react';
 
 import { Providers } from './providers';
 import { WALLETCONNECT_PROJECT_ID } from './config';
 
 const poppins = Poppins({ subsets: ['latin'], weight: '500' });
+
+export const metadata = {
+  title: 'WrapnWrap',
+  description: 'Wrap and Unwrap chain specific gas tokens.'
+};
 
 const projectId = WALLETCONNECT_PROJECT_ID;
 

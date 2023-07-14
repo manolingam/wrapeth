@@ -1,29 +1,32 @@
 'use client';
 
-import {
-  Flex,
-  Image as ChakraImage,
-  Text,
-  Link as ChakraLink
-} from '@chakra-ui/react';
+import { Flex, Text, Link as ChakraLink, HStack } from '@chakra-ui/react';
+
+import { FaTwitter, FaGithub } from 'react-icons/fa';
 
 export const Footer = () => {
   return (
     <Flex direction='column'>
       <Flex direction='row' justifyContent='space-between' alignItems='center'>
-        <Text mt='10px' textAlign='center' fontSize='12px' opacity='0.7'>
-          built by{' '}
+        <HStack alignItems='center'>
+          <Text textAlign='center' fontSize='12px' opacity='0.7'>
+            built by Saimano{' '}
+          </Text>
           <ChakraLink
             href='https://twitter.com/saimano1996'
             isExternal
             fontWeight='bold'
           >
-            Saimano
+            <FaTwitter />
           </ChakraLink>
-        </Text>
-        {/* <ChakraLink href='https://raidguild.org' isExternal>
-          <ChakraImage src='/raidguild.webp' h={{ lg: '30px', sm: '20px' }} />
-        </ChakraLink> */}
+          <ChakraLink
+            href='https://github.com/manolingam/wrapnwrap'
+            isExternal
+            fontWeight='bold'
+          >
+            <FaGithub />
+          </ChakraLink>
+        </HStack>
         <Text
           textTransform='uppercase'
           w='60%'
