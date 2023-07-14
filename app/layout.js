@@ -11,16 +11,12 @@ import { Web3Modal } from '@web3modal/react';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import { gnosis, mainnet, goerli, sepolia } from 'wagmi/chains';
 import { Box } from '@chakra-ui/react';
+import { Head } from 'next/document';
 
 import { Providers } from './providers';
 import { WALLETCONNECT_PROJECT_ID } from './config';
 
 const poppins = Poppins({ subsets: ['latin'], weight: '500' });
-
-export const metadata = {
-  title: 'WrapnWrap',
-  description: 'Wrap and Unwrap chain specific gas tokens.'
-};
 
 const projectId = WALLETCONNECT_PROJECT_ID;
 
@@ -40,6 +36,23 @@ export default function RootLayout({ children }) {
         <WagmiConfig config={wagmiConfig}>
           <Providers>
             <Box bg='linear-gradient(157.1deg, #22002b 0%, #390418 29.17%, #48093A 61.98%, #1F0442 100%)'>
+              <Head>
+                <title>WrapnWrap</title>
+                <meta
+                  name='description'
+                  content='Wrap and Unwrap chain specific gas tokens.'
+                />
+                <meta property='og:title' content='WrapnWrap' />
+                <meta
+                  property='og:description'
+                  content='Wrap and Unwrap chain specific gas tokens.'
+                />
+                <meta name='twitter:title' content='WrapnWrap' />
+                <meta
+                  name='twitter:description'
+                  content='Wrap and Unwrap chain specific gas tokens.'
+                />
+              </Head>
               {children}
             </Box>
           </Providers>
