@@ -11,9 +11,8 @@ import { Web3Modal } from '@web3modal/react';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import { gnosis, mainnet, goerli, sepolia } from 'wagmi/chains';
 
-import { Flex, Box } from '@chakra-ui/react';
-import { Header } from './shared/Header';
-import { Footer } from './shared/Footer';
+import { Box } from '@chakra-ui/react';
+
 import { Providers } from './providers';
 import { WALLETCONNECT_PROJECT_ID } from './config';
 
@@ -37,19 +36,7 @@ export default function RootLayout({ children }) {
         <WagmiConfig config={wagmiConfig}>
           <Providers>
             <Box bg='linear-gradient(157.1deg, #22002b 0%, #390418 29.17%, #48093A 61.98%, #1F0442 100%)'>
-              <Flex
-                direction='column'
-                justifyContent='space-between'
-                maxW='90rem'
-                minH='100vh'
-                mx='auto'
-                py='2rem'
-                px={{ lg: '4rem', sm: '2rem' }}
-                color='white'
-              >
-                <Header />
-                {children} <Footer />
-              </Flex>
+              {children}
             </Box>
           </Providers>
         </WagmiConfig>

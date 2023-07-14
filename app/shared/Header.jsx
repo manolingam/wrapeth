@@ -1,10 +1,26 @@
 'use client';
 
-import { Flex, Text, HStack } from '@chakra-ui/react';
+import {
+  Flex,
+  Text,
+  HStack,
+  Link as ChakraLink,
+  Button,
+  Spinner
+} from '@chakra-ui/react';
 import { Web3Button } from '@web3modal/react';
 import { GiWrappedSweet } from 'react-icons/gi';
+import { FaExternalLinkSquareAlt } from 'react-icons/fa';
 
-export const Header = () => {
+import { blockExplorerBaseUrl } from '../utils/contracts';
+
+export const Header = ({
+  isTxLoading,
+  chain,
+  type,
+  dataDeposit,
+  datawithdraw
+}) => {
   return (
     <Flex
       direction='row'
@@ -16,7 +32,25 @@ export const Header = () => {
         <GiWrappedSweet />
         <Text>Wrapeth</Text>
       </HStack>
-      <Web3Button />
+      <HStack>
+        {isTxLoading && (
+          <ChakraLink
+            isExternal
+            href={`${blockExplorerBaseUrl[chain.id]}/${
+              type === 'Wrap' ? dataDeposit?.hash : datawithdraw?.hash
+            }`}
+          >
+            <Button opacity='0.5' _hover={{ opacity: '1' }}>
+              <HStack>
+                <Spinner size='sm' />
+                <Text fontSize={{ lg: '12px', sm: '10px' }}>View tx</Text>
+                <FaExternalLinkSquareAlt />
+              </HStack>
+            </Button>
+          </ChakraLink>
+        )}
+        <Web3Button />
+      </HStack>
     </Flex>
   );
 };
