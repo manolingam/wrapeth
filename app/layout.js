@@ -11,7 +11,7 @@ import { Web3Modal } from '@web3modal/react';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import { gnosis, mainnet, goerli, sepolia } from 'wagmi/chains';
 import { Box } from '@chakra-ui/react';
-import { Head } from 'next/document';
+import Head from 'next/head';
 
 import { Providers } from './providers';
 import { WALLETCONNECT_PROJECT_ID } from './config';
