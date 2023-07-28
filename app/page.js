@@ -1,6 +1,6 @@
 'use client';
 
-import { Flex } from '@chakra-ui/react';
+import { Flex, useToast, HStack, Text } from '@chakra-ui/react';
 import {
   useBalance,
   useAccount,
@@ -11,6 +11,7 @@ import {
 
 import { parseEther } from 'viem';
 import { useState } from 'react';
+import { AiFillCheckCircle } from 'react-icons/ai';
 
 import { Header } from './shared/Header';
 import { Footer } from './shared/Footer';
@@ -22,6 +23,8 @@ import { wethAddrs } from './utils/contracts';
 export default function Home() {
   const [type, setType] = useState('Wrap');
   const [tokenInput, setTokenInput] = useState(0);
+
+  const toast = useToast();
 
   const { address } = useAccount();
   const { chain } = useNetwork();
@@ -73,7 +76,18 @@ export default function Home() {
   });
 
   const { isLoading: isTxLoading } = useWaitForTransaction({
-    hash: type === 'Wrap' ? dataDeposit?.hash : datawithdraw?.hash
+    hash: type === 'Wrap' ? dataDeposit?.hash : datawithdraw?.hash,
+    onSuccess(data) {
+      toast({
+        position: 'bottom-center',
+        render: () => (
+          <HStack color='white' p={3} fontSize='14px' bg='#1413146f'>
+            <AiFillCheckCircle />{' '}
+            <Text>Successfully {type}ed your tokens.</Text>
+          </HStack>
+        )
+      });
+    }
   });
 
   return (

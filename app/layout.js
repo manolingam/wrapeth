@@ -9,7 +9,7 @@ import {
 } from '@web3modal/ethereum';
 import { Web3Modal } from '@web3modal/react';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
-import { gnosis, mainnet, goerli, sepolia } from 'wagmi/chains';
+import { gnosis, mainnet, goerli, sepolia, polygon } from 'wagmi/chains';
 import { Box } from '@chakra-ui/react';
 import Head from 'next/head';
 import { Analytics } from '@vercel/analytics/react';
@@ -21,7 +21,7 @@ const poppins = Poppins({ subsets: ['latin'], weight: '500' });
 
 const projectId = WALLETCONNECT_PROJECT_ID;
 
-const chains = [gnosis, mainnet, goerli, sepolia];
+const chains = [gnosis, mainnet, goerli, sepolia, polygon];
 const { publicClient } = configureChains(chains, [w3mProvider({ projectId })]);
 const wagmiConfig = createConfig({
   autoConnect: true,

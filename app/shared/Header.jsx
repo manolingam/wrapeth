@@ -30,13 +30,13 @@ export const Header = ({
     >
       <HStack fontSize={{ lg: '24px', sm: '18px' }}>
         <GiWrappedSweet />
-        <Text>Wrap-N-Wrap</Text>
+        <Text fontSize={{ lg: '18px', sm: ' 12px' }}>Wrap-N-Wrap</Text>
       </HStack>
       <HStack>
         {isTxLoading && (
           <ChakraLink
             isExternal
-            href={`${blockExplorerBaseUrl[chain.id]}/${
+            href={`${blockExplorerBaseUrl[chain?.id]}/${
               type === 'Wrap' ? dataDeposit?.hash : datawithdraw?.hash
             }`}
           >

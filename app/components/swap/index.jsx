@@ -145,8 +145,8 @@ export const SwapBox = ({
           isDisabled={
             Number(tokenInput) > 0
               ? type === 'Wrap'
-                ? Number(tokenInput) >= Number(unwrappedBalance)
-                : Number(tokenInput) >= Number(wrappedBalance)
+                ? Number(tokenInput) > Number(unwrappedBalance)
+                : Number(tokenInput) > Number(wrappedBalance)
               : true
           }
           onClick={() => (type === 'Wrap' ? writeDeposit() : withdrawDeposit())}

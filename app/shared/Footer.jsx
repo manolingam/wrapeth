@@ -35,7 +35,7 @@ export const Footer = () => {
           fontSize='12px'
           opacity='0.7'
         >
-          On Goerli, Gnosis & Ethereum Mainnet
+          On Goerli, Gnosis, Polygon & Ethereum Mainnet
         </Text>
       </Flex>
     </Flex>
